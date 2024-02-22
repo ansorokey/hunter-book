@@ -1,5 +1,6 @@
-import MonsterPage from './components/Monster-Page';
-import SearchBar from './components/Search-Bar';
+import MonsterPage from './components/MonsterPage';
+import MonsterScrollBar from './components/MonsterScrollBar';
+import SearchBar from './components/SearchBar';
 import './index.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <h1>Hello World</h1>
       <SearchBar/>
       <MonsterPage/>
+      <MonsterScrollBar/>
     </div>
   );
 }

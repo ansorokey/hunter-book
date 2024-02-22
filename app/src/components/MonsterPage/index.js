@@ -1,7 +1,9 @@
 function MonsterPage() {
     return (
         <div id='monster-page-wrapper'>
-            <h2>Monster Page</h2>
+            <h2>Monster Name</h2>
+            <p>Monster Picture</p>
+            <p>Monster Characteristics</p>
         </div>
     );
 }

@@ -1,0 +1,45 @@
+#monster-scroll-bar-wrapper {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+}
+
+#monster-scroll-bar-wrapper ul {
+    height: 480px;
+    width: fit-content;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+/* The whole scroll bar */
+#monster-scroll-bar-wrapper ul::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+/* The arrows top and bottom */
+#monster-scroll-bar-wrapper ul::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* The Handle */
+#monster-scroll-bar-wrapper ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* The not handle space */
+#monster-scroll-bar-wrapper ul::-webkit-scrollbar-track {
+    background-color: red;
+    border: none;
+}
+
+/* The entire  */
+#monster-scroll-bar-wrapper ul::-webkit-scrollbar-track-piece {
+    background-color: blue;
+}
+
+#monster-scroll-bar-wrapper ul li {
+    list-style-type: none;
+    height: 80px;
+    width: 240px;
+    border: 1px solid black;
+}
