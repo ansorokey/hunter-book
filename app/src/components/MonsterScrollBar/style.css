@@ -23,18 +23,18 @@
 
 /* The Handle */
 #monster-scroll-bar-wrapper ul::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: black;
+    border-radius: 16px;
 }
 
 /* The not handle space */
 #monster-scroll-bar-wrapper ul::-webkit-scrollbar-track {
-    background-color: red;
     border: none;
 }
 
 /* The entire handle/not shandle space */
 #monster-scroll-bar-wrapper ul::-webkit-scrollbar-track-piece {
-    background-color: blue;
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
 #monster-scroll-bar-wrapper ul li {

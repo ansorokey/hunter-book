@@ -1,15 +1,15 @@
-// import MonsterPage from './components/MonsterPage';
-// import MonsterScrollBar from './components/MonsterScrollBar';
-// import SearchBar from './components/SearchBar';
 import './index.css';
+import MonsterPage from './components/MonsterPage/index.tsx';
+import MonsterScrollBar from './components/MonsterScrollBar/index.tsx';
+import SearchBar from './components/SearchBar/index.tsx';
 
 function App() {
   return (
     <div id="app-wrapper">
-      <h1>Hello World</h1>
-      {/* <SearchBar/>
+      <h1>Hello World from App.tsx</h1>
+      <SearchBar/>
       <MonsterPage/>
-      <MonsterScrollBar/> */}
+      <MonsterScrollBar/>
     </div>
   );
 }

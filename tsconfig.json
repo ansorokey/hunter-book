@@ -4,8 +4,10 @@
         "target": "es6",
         // give us access to DOM model methods/class
         "lib": ["dom", "es6" ],
-        // Allow import into ts files
+        // Allow import ts and tsx files
         "allowSyntheticDefaultImports": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
         // allows us to use jsx without error
         "jsx": "preserve"
     },
