@@ -32,7 +32,7 @@
     border: none;
 }
 
-/* The entire  */
+/* The entire handle/not shandle space */
 #monster-scroll-bar-wrapper ul::-webkit-scrollbar-track-piece {
     background-color: blue;
 }

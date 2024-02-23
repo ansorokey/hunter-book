@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        // TS defaults to ES3, use a later version for async await
+        "target": "es6",
+        // give us access to DOM model methods/class
+        "lib": ["dom", "es6" ],
+        // Allow import into ts files
+        "allowSyntheticDefaultImports": true,
+        // allows us to use jsx without error
+        "jsx": "preserve"
+    },
+    "watchOptions": {
+        // Use native file system events for files and directories
+        "watchFile": "useFsEvents",
+        "watchDirectory": "useFsEvents",
+        // Poll files for updates more frequently
+        // when they're updated a lot.
+        "fallbackPolling": "dynamicPriority",
+        // Don't coalesce watch notification
+        "synchronousWatchDirectory": true,
+        // Finally, two additional settings for reducing the amount of possible
+        // files to track  work from these directories
+        // "excludeDirectories": ["**/node_modules"],
+        // "excludeFiles": ["build/fileWhichChangesOften.ts"]
+    }
+}
