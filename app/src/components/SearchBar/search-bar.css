@@ -1,0 +1,21 @@
+#search-bar-wrapper {
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 4px;
+    position: relative;
+    width: 100px;
+    height: 40px;
+}
+
+#search-bar-wrapper i {
+    position: absolute;
+    left: 4px;
+}
+
+#search-bar-wrapper input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
