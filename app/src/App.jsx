@@ -1,7 +1,7 @@
 import './index.css';
-import MonsterPage from './components/MonsterPage/index.tsx';
-import MonsterScrollBar from './components/MonsterScrollBar/index.tsx';
-import SearchBar from './components/SearchBar/index.tsx';
+import MonsterPage from './components/MonsterPage/index.jsx';
+import MonsterScrollBar from './components/MonsterScrollBar/index';
+import SearchBar from './components/SearchBar/index';
 
 function App() {
   return (

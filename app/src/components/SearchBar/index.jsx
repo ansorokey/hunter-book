@@ -5,6 +5,7 @@ function SearchBar() {
         <div id='search-bar-wrapper'>
             <input
                 type='text'
+                placeholder='Start typing here...'
             />
             <i className="fa-solid fa-magnifying-glass"></i>
         </div>
