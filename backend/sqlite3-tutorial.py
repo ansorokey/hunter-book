@@ -18,8 +18,13 @@ cur.execute('DROP TABLE IF EXISTS movie')
 # Create a table using raw SQL
 cur.execute('CREATE TABLE movie(title, year, score)')
 
+# Query a table's name from the master schema
 # result is a sqlite object
 res = cur.execute('SELECT name FROM sqlite_master')
 
 # Use a fetch function to pull a single result as a tuple
 print(res.fetchone())
+
+# Query a nonexistant table
+nores = cur.execute('SELECT name FROM sqlite_master WHERE name="noexist"')
+print(nores.fetchone() is None) # Returns a None result
