@@ -1,2 +1,4 @@
 dev-log.md
 **/node_modules/
+**.db
+**.sql
