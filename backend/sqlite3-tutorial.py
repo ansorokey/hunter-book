@@ -6,7 +6,7 @@ import sqlite3
 
 # Choose the database to connect to
 # Will create database of the name if it cannot be found
-con = sqlite3.connect('tutorial.db')
+con = sqlite3.connect('tutorial.db') # Running in same folder
 
 # Create a cursor
 # Connects to the database, is what we will use to execute statements
