@@ -4,9 +4,12 @@
 # Import sqlite3 package
 import sqlite3
 
+# Let's make a string that represents our path
+dbPath = './backend/tutorial.db'
+
 # Choose the database to connect to
 # Will create database of the name if it cannot be found
-con = sqlite3.connect('./backend/tutorial.db') # Path based on where the file was executed FROM (running from root)
+con = sqlite3.connect(dbPath) # Path based on where the file was executed FROM (running from root)
 
 # Create a cursor
 # Connects to the database, is what we will use to execute statements
@@ -58,3 +61,22 @@ cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
 
 # Remember to commit after inserting
 con.commit()
+
+# Check data was added by iterating over result directly
+for row in cur.execute("SELECT year, title FROM movie ORDER BY year"):
+    print(row)
+
+# We can now close the connection
+con.close()
+
+# Check everything saved by reopening a new connection and querying again
+new_con = sqlite3.connect(dbPath)
+new_cur = new_con.cursor()
+
+res = new_cur.execute("SELECT title, year FROM movie ORDER BY score DESC")
+
+title, year = res.fetchone() # returns one result as a tuple, we can immediately destructure/assign to variables
+
+print(f'The highest scoring Monty Python movie is {title!r}, released in {year}')
+
+new_con.close()
