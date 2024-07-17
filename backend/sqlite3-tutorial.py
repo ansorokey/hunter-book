@@ -6,7 +6,7 @@ import sqlite3
 
 # Choose the database to connect to
 # Will create database of the name if it cannot be found
-con = sqlite3.connect('tutorial.db') # Running in same folder
+con = sqlite3.connect('./backend/tutorial.db') # Path based on where the file was executed FROM (running from root)
 
 # Create a cursor
 # Connects to the database, is what we will use to execute statements
