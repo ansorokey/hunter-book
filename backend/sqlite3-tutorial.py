@@ -28,3 +28,33 @@ print(res.fetchone())
 # Query a nonexistant table
 nores = cur.execute('SELECT name FROM sqlite_master WHERE name="noexist"')
 print(nores.fetchone() is None) # Returns a None result
+
+# Use python literals to run an insert statement to the movie table
+cur.execute("""
+INSERT INTO movie VALUES
+            ('Monty Python and the Holy Grail', 1975, 8.2),
+            ('And Now for Something Completely Different', 1971, 7.5)
+""")
+
+# An insert statement opens a transaction
+# A transaction is not saved into the database until commited
+# Run to save changes
+con.commit()
+
+# Check to see data was added properly by fetching all scores
+res = cur.execute('SELECT score FROM movie')
+print(res.fetchall())
+
+# We can insert more data more easily using collections and placeholders
+data = [
+    ("Monty Python Live at the Hollywood Bowl", 1982, 7.9),
+    ("Monty Python's The Meaning of Life", 1983, 7.5),
+    ("Monty Python's Life of Brian", 1979, 8.0),
+]
+
+# .executemany() will iterate through each item in the collection
+# The ? placeholder is best practice, and safeguards against sql injection that happens with string formatting
+cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
+
+# Remember to commit after inserting
+con.commit()
