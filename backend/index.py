@@ -1,5 +1,5 @@
 import sqlite3
-import monsters from data.py # this is wrong
+from data import monsters
 
 # Establish the database we want to connect to
 # (Assume we're running this from root directory)
@@ -15,6 +15,7 @@ curs.execute("""
 DROP TABLE IF EXISTS monsters;
 """)
 
+# Create tables
 curs.execute("""
 CREATE TABLE monsters (
     monsterId integer PRIMARY KEY AUTOINCREMENT,
@@ -27,3 +28,13 @@ CREATE TABLE monsters (
 # Check tables were made
 tableNames = curs.execute("SELECT name FROM sqlite_master;")
 print(tableNames.fetchall())
+
+curs.executemany("""
+INSERT INTO monsters (name, size) VALUES (?, ?);
+""", monsters)
+
+checkMonsters = curs.execute("""
+SELECT * from MONSTERS limit 5;
+""");
+
+print(checkMonsters.fetchall())
