@@ -23,10 +23,10 @@ smallMonsters = [
     {'name': 'Gajau', 'size': 'small'}, {'name': 'Gastodon', 'size': 'small'}, {'name': 'Girros', 'size': 'small'}, {'name': 'Grimalkyne', 'size': 'small'}, {'name': 'Hornetaur', 'size': 'small'}, {'name': 'Jagras', 'size': 'small'}, {'name': 'Kelbi', 'size': 'small'}, {'name': 'Kestodon', 'size': 'small'}, {'name': 'Mernos', 'size': 'small'}, {'name': 'Mosswine', 'size': 'small'}, {'name': 'Noios', 'size': 'small'}, {'name': 'Popo', 'size': 'small'}, {'name': 'Raphinos', 'size': 'small'}, {'name': 'Shamos', 'size': 'small'}, {'name': 'Vespoid', 'size': 'small'}, {'name': 'Wulg', 'size': 'small'}]
 
 locales = [
-    'Ancient Forest',
-    'Wildspire Wastes',
-    'Coral Highlands',
-    'Rotten Vale',
-    'Elder\'s Recess',
-    'Hoarfrost Reach'
+    ('Ancient Forest',),
+    ('Wildspire Wastes',),
+    ('Coral Highlands',),
+    ('Rotten Vale',),
+    ('Elder\'s Recess',),
+    ('Hoarfrost Reach',)
 ]
