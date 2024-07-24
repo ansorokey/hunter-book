@@ -45,6 +45,20 @@ CREATE TABLE locales (
 )
 """)
 
+curs.execute("""
+CREATE TABLE monster_locales (
+    monster_name varchar(20) NOT NULL,
+    monster_size varchar(5) NOT NULL,
+    locale_name varchar(20) NOT NULL,
+    FOREIGN KEY (monster_name)
+        references large_monsters (name)
+            ON DELETE CASCADE
+    FOREIGN KEY (locale_name)
+        references locales (name)
+            ON DELETE CASCADE
+);
+""")
+
 # Check tables were made
 tableNames = curs.execute("SELECT name FROM sqlite_master;")
 print(tableNames.fetchall())
@@ -56,6 +70,10 @@ INSERT INTO large_monsters (name, type, size) VALUES (:name, :type, :size);
 curs.executemany("""
 INSERT INTO small_monsters (name, size) VALUES (:name, :size);
 """, smallMonsters)
+
+curs.executemany("""
+INSERT INTO locales (name) VALUES (?);
+""", locales)
 
 curs.executemany("""
 INSERT INTO locales (name) VALUES (?);

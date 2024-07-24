@@ -1,5 +1,5 @@
 largeMonsters = [
-    {'name': 'Acidic Glavenus', 'type': 'Brute Wyvern', 'size': 'large'},
+    {'name': 'Acidic Glavenus', 'type': 'Brute Wyvern', 'size': 'large', 'locales': ['Rotten Vale']},
     {'name': 'Alatreon', 'type': 'Elder Dragon', 'size': 'large'},
     {'name': 'Ancient Leshen', 'type': 'Relict', 'size': 'large'},
     {'name': 'Anjanath', 'type': 'Brute Wyvern', 'size': 'large'},
