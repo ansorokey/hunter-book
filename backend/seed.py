@@ -61,4 +61,6 @@ curs.executemany("""
 INSERT INTO locales (name) VALUES (?);
 """, locales)
 
+db.commit()
+
 print('Seed complete')
