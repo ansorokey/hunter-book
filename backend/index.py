@@ -17,7 +17,7 @@ import sqlite3
 def pause():
     res = input()
 
-    if res == "":
+    if res == "" or res != "":
         return
 
 startProgram = True
@@ -38,6 +38,7 @@ def menu():
         allMons = curs.execute('SELECT * FROM large_monsters;')
         for mon in allMons:
             print(mon)
+        db.close()
         print('Press enter to continue')
         pause()
 
