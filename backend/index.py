@@ -1,53 +1,49 @@
 
-# from data import largeMonsters, smallMonsters
+from data import largeMonsters, smallMonsters
 
-# res = []
-# for m in smallMonsters:
-#     mon = {
-#         'name': m[0],
-#         'size': m[1]
-#     }
-#     res.append(mon)
+for m in largeMonsters:
+    m['locales'] = []
 
-# # Open the file - a flag to append (write to the end of the file)
-# f = open('./data.py', 'a')
-# f.write('smallMonsters = {0}'.format(res))
-import sqlite3
+# Open the file - a flag to append (write to the end of the file)
+f = open('data.py', 'a')
+f.write(str(largeMonsters))
 
-def pause():
-    res = input()
+# import sqlite3
 
-    if res == "" or res != "":
-        return
+# def pause():
+#     res = input()
 
-startProgram = True
-def menu():
-    print("""
-        1. View large monsters
-        2. View small monsters
-        3. View locales
-        Q. Quit program
-    """)
+#     if res == "" or res != "":
+#         return
 
-    userInput = input()
+# startProgram = False
+# def menu():
+#     print("""
+#         1. View large monsters
+#         2. View small monsters
+#         3. View locales
+#         Q. Quit program
+#     """)
 
-    if userInput == '1':
-        print('Gathering monster data...')
-        db = sqlite3.connect('./backend/mhw.db')
-        curs = db.cursor()
-        allMons = curs.execute('SELECT * FROM large_monsters;')
-        for mon in allMons:
-            print(mon)
-        db.close()
-        print('Press enter to continue')
-        pause()
+#     userInput = input()
 
-    elif userInput == 'q' or 'Q':
-        print('exiting')
-        global startProgram
-        startProgram = False
-    else:
-        print('No action for selected input')
+#     if userInput == '1':
+#         print('Gathering monster data...')
+#         db = sqlite3.connect('./backend/mhw.db')
+#         curs = db.cursor()
+#         allMons = curs.execute('SELECT * FROM large_monsters;')
+#         for mon in allMons:
+#             print(mon)
+#         db.close()
+#         print('Press enter to continue')
+#         pause()
 
-while startProgram:
-    menu()
+#     elif userInput == 'q' or 'Q':
+#         print('exiting')
+#         global startProgram
+#         startProgram = False
+#     else:
+#         print('No action for selected input')
+
+# while startProgram:
+#     menu()
