@@ -10,7 +10,7 @@ db = sqlite3.connect(dbPath)
 # (this is our connection to the database/will execute sql statements)
 curs = db.cursor()
 
-# DROP EXISTING DATA
+# Drop existing tables
 curs.execute("""
 DROP TABLE IF EXISTS large_monsters;
 """)
@@ -21,6 +21,10 @@ DROP TABLE IF EXISTS small_monsters;
 
 curs.execute("""
 DROP TABLE IF EXISTS locales;
+""")
+
+curs.execute("""
+DROP TABLE IF EXISTS monster_locales;
 """)
 
 # Create tables
@@ -45,6 +49,7 @@ CREATE TABLE locales (
 )
 """)
 
+# Polymorphic many to many table, foreign key points to two tables
 curs.execute("""
 CREATE TABLE monster_locales (
     monster_name varchar(20) NOT NULL,
@@ -53,6 +58,9 @@ CREATE TABLE monster_locales (
     FOREIGN KEY (monster_name)
         references large_monsters (name)
             ON DELETE CASCADE
+    FOREIGN KEY (monster_name)
+        references small_monsters (name)
+             ON DELETE CASCADE
     FOREIGN KEY (locale_name)
         references locales (name)
             ON DELETE CASCADE
@@ -63,6 +71,7 @@ CREATE TABLE monster_locales (
 tableNames = curs.execute("SELECT name FROM sqlite_master;")
 print(tableNames.fetchall())
 
+# Insert data into tables
 curs.executemany("""
 INSERT INTO large_monsters (name, type, size) VALUES (:name, :type, :size);
 """, largeMonsters)
@@ -75,10 +84,13 @@ curs.executemany("""
 INSERT INTO locales (name) VALUES (?);
 """, locales)
 
-curs.executemany("""
-INSERT INTO locales (name) VALUES (?);
-""", locales)
+# Seed Monster_locations
+for mon in largeMonsters:
+    if 'locales' in mon:
+        for l in mon['locales']:
+            curs.execute("""
+            INSERT INTO monster_locales (monster_name, monster_size, locale_name) VALUES (?,?,?)
+            """, (mon['name'], mon['size'], l))
 
+# Save actions to database
 db.commit()
-
-print('Seed complete')
