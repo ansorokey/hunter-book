@@ -5,8 +5,10 @@ for m in largeMonsters:
     m['locales'] = []
 
 # Open the file - a flag to append (write to the end of the file)
-f = open('data.py', 'a')
-f.write(str(largeMonsters))
+# f = open('data.py', 'a')
+# f.write('largeMonsters = [\n')
+# for m in largeMonsters:
+#     f.write(str(m) + ',\n')
 
 # import sqlite3
 
